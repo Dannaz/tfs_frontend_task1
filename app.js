@@ -23,5 +23,5 @@ function closure() {
 }
 
 anagram();
-
+alert("Хэй! А теперь загляни в консоль....");
 closure();
