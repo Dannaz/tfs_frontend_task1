@@ -15,7 +15,6 @@ function anagram() {
 function closure() {
     console.log("Замыкалити");
     for (var i = 0; i < 10; i++) {
-        var a = i;
         setTimeout(function(i){
             console.log(i);
         }(i), 1000);
