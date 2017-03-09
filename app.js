@@ -1,27 +1,42 @@
-function anagram() {
+doFirstTask();
+alert("Хэй! А теперь загляни в консоль....");
+doClosureTask();
+
+function doFirstTask(){
     var firstWord, secondWord;
-    var isAnagram = false;
 
     firstWord = prompt("Введите первое слово:");
     secondWord = prompt("Ввведите второе слово:");
 
-    if(firstWord.split("").sort().join("") === secondWord.split("").sort().join("")) {
-        isAnagram = true;
-    }
-
-    alert(isAnagram ? "Введенные слова являются анаграммой" : "Введенные слова не являются анаграммой");
+    alert(checkAnagram(firstWord, secondWord) ? "Введенные слова являются анаграммой" : "Введенные слова не являются анаграммой");
 }
 
-function closure() {
+function checkAnagram(firstWord, secondWord) {
+    firstWord = firstWord.toLowerCase().split("").sort().join("");
+    secondWord = secondWord.toLowerCase().split("").sort().join("");
+
+    return firstWord === secondWord;
+}
+
+function doClosureTask() {
     console.log("Замыкалити");
+
     for (var i = 0; i < 10; i++) {
-        var a = i;
         setTimeout(function(i){
             console.log(i);
         }(i), 1000);
     }
+
+    console.log("Замыкалити 2.0");
+
+    for (var i = 0; i < 10; i++){
+        setClosureTimeout(i, 1000);
+    }
+
 }
 
-anagram();
-alert("Хэй! А теперь загляни в консоль....");
-closure();
+function setClosureTimeout(arg, timeout){
+    setTimeout(function(){
+        console.log(arg)
+    }, timeout);
+}
